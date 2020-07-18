@@ -18,15 +18,28 @@ router.get('/', (req, res) => {
 
 //get single project
 
-router.get('/:id', (req, res) => {
-projects.get(req.params.id)
-.then((project)=> {
-    res.status(200).json(project)
-})
-.catch((err)=> {
-    console.log(err);
-    res.status(500).json({error:'The project could not be retrieved.'})
-})
+// router.get('/:id', (req, res) => {
+// projects.get(req.params.id)
+// .then((project)=> {
+//     res.status(200).json(project)
+// })
+// .catch((err)=> {
+//     console.log(err);
+//     res.status(500).json({error:'The project could not be retrieved.'})
+// })
+// })
+
+// get project actions
+
+router.get('/:id', (req, res)=> {
+    projects.getProjectActions(req.params.id)
+    .then((projectActions)=> {
+        res.status(200).json(projectActions)
+    })
+    .catch((err)=> {
+        console.log(err);
+        res.status(500).json({error:'The project actions could not be retrieved.'})
+    })
 })
 //post 
 

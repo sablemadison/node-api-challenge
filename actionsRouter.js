@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const actions = require('./data/helpers/actionModel');
-
+const projects = require('./data/helpers/projectModel');
 //get
 
 router.get('/', (req, res)=> {
@@ -31,7 +31,7 @@ router.get('/:id', (req, res)=> {
 })
 
 // post 
-router.post('/', (req, res)=> {
+router.post('/', validateId, (req, res)=> {
 actions.insert(req.body)
 .then((action)=> {
     res.status(200).json(action)
@@ -64,5 +64,14 @@ router.delete('/:id', (req, res)=> {
     })
     
 })
+function validateId (req, res, next){
+let project = projects.get(req.body.id)
 
+if(project){
+    next()
+} else {
+    res.status(500).json({error:'The id could not be found'})
+}
+
+}
 module.exports = router;
