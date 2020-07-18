@@ -13,11 +13,24 @@ router.get('/', (req, res)=> {
     })
     .catch((err)=>{
         console.log(err);
-        res.status(400).json({errorMessage:'The actions could not be retrieved.'})
+        res.status(400).json({error:'The actions could not be retrieved.'})
     })
 })
 
-// post TEST
+//get single action
+
+router.get('/:id', (req, res)=> {
+    actions.get(req.params.id)
+    .then((action)=> {
+        res.status(200).json(action)
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.status(500).json({error:'The action could not be retrieved.'})
+    })
+})
+
+// post 
 router.post('/', (req, res)=> {
 actions.insert(req.body)
 .then((action)=> {
@@ -25,7 +38,7 @@ actions.insert(req.body)
 })
 })
 
-//put test
+//put 
 
 router.put('/:id', (req, res)=> {
     let changes = req.body;
@@ -43,7 +56,7 @@ router.put('/:id', (req, res)=> {
 router.delete('/:id', (req, res)=> {
     actions.remove(req.params.id)
     .then((deleted)=> {
-        res.status().json(req.params.id)
+        res.status(200).json(`The resource belonging to id ${req.params.id} was deleted`)
     })
     .catch((err)=> {
         console.log(err);

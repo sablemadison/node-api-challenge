@@ -3,14 +3,15 @@ const express = require('express');
 
 
 const actionsRouter = require('./actionsRouter');
-
+const projectsRouter = require('./projectsRouter');
 const server = express();
 
 // parse incoming objects
 server.use(express.json());
 
 
-server.use('/', actionsRouter);
+server.use('/actions', actionsRouter);
+server.use('/projects', projectsRouter)
 
 const port = 5000;
 
