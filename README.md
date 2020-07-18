@@ -40,13 +40,27 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+I learned Express uses middleware that can be used to get and alter the request and response objects. 
+
+I learned Express has a routing system and it is better than the rooting mechanism
+in Node.js because it is more efficient.
+
 - [ ] Describe Middleware?
+
+Middleware are functions you can use to add extra functionality to Express. They have access to req and res objects and they are carried out in order. 
 
 - [ ] Describe a Resource?
 
+A resource is the content or data that the server provides to the client.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+A status code and a message describing the request's outcome.
+
 - [ ] How can we partition our application into sub-applications?
+
+We can use organize endpoints and middleware into individual routers so that only 
+the functions relevant to each resource are in each file.
 
 ## Minimum Viable Product
 
@@ -104,3 +118,20 @@ We have provided test data for all the resources.
 - From the React application show a list of all _projects_ using the API you built.
 - Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
 - Add styling!
+
+IC
+
+/*
+play this: https://www.youtube.com/watch?v=d-diB65scQU
+
+Sing along:
+
+here's a little code I wrote, please read the README word for word, don't worry, you got this
+in every task there may be trouble, but if you worry you make it double, don't worry, you got this
+ain't got no sense of what is REST? just concentrate on learning Express, don't worry, you got this
+your file is getting way too big, bring a Router and make it thin, don't worry, be crafty
+there is no data on that route, just write some code, you'll sort it out… don't worry, just hack it…
+I need this code, but don't know where, perhaps should make some middleware, don't worry, just hack it
+
+Go code!
+*/
