@@ -40,13 +40,27 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+I learned Express uses middleware that can be used to get and alter the request and response objects. 
+
+I learned Express has a routing system and it is better than the rooting mechanism
+in Node.js because it is more efficient.
+
 - [ ] Describe Middleware?
+
+Middleware are functions you can use to add extra functionality to Express. They have access to req and res objects and they are carried out in order. 
 
 - [ ] Describe a Resource?
 
+A resource is the content or data that the server provides to the client.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+A status code and a message describing the request's outcome.
+
 - [ ] How can we partition our application into sub-applications?
+
+We can use organize endpoints and middleware into individual routers so that only 
+the functions relevant to each resource are in each file.
 
 ## Minimum Viable Product
 
