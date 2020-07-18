@@ -17,20 +17,38 @@ router.get('/', (req, res)=> {
     })
 })
 
-// post
+// post TEST
 router.post('/', (req, res)=> {
-
+actions.insert(req.body)
+.then((action)=> {
+    res.status(200).json(action)
+})
 })
 
-//put
+//put test
 
-router.put('/', (req, res)=> {
-    
+router.put('/:id', (req, res)=> {
+    let changes = req.body;
+    actions.update(req.params.id, changes)
+    .then((newAction)=> {
+        res.status(200).json(newAction);
+    })
+    .catch((err)=> {
+        res.status(500).json({error:'The action could not be updated'})
+    })
 })
 
 //delete
 
-router.delete('/', (req, res)=> {
+router.delete('/:id', (req, res)=> {
+    actions.remove(req.params.id)
+    .then((deleted)=> {
+        res.status().json(req.params.id)
+    })
+    .catch((err)=> {
+        console.log(err);
+        res.status(500).json({error:'The action could not be deleted'})
+    })
     
 })
 
